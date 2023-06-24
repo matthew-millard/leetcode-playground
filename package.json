@@ -1,0 +1,22 @@
+{
+  "name": "leetcode-playground",
+  "version": "1.0.0",
+  "description": "My leetcode playground",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matthew-millard/leetcode-playground.git"
+  },
+  "author": "Matthew Millard",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matthew-millard/leetcode-playground/issues"
+  },
+  "homepage": "https://github.com/matthew-millard/leetcode-playground#readme",
+  "devDependencies": {
+    "jest": "^25.0.0"
+  }
+}
