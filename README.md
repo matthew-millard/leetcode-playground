@@ -6,6 +6,7 @@ A repository where I practice data structures, algorithms, and coding challenges
 
 - [Easy](#easy)
   - [2626. Array Reduce Transformation](#2626-array-reduce-transformation)
+  - [9. Palindrome Number](#9-palindrome-number)
 
 ## Easy
 
@@ -19,7 +20,7 @@ If the length of the array is 0, it should return init.
 
 **Please solve it without using the built-in Array.reduce method.**
 
-#### My Solution
+#### My Solution - 2626
 
 ```JavaScript
 const reduce = (nums, fn, init) => {
@@ -64,6 +65,41 @@ describe('array reduce transformation', () => {
     const result = reduce(nums, fn, init);
 
     expect(result).toBe(expectedOutput);
+  });
+});
+```
+
+### 9 Palindrome Number
+
+Given an integar `x`, return `true` if `x` is a *palindrome*, and `false` otherwise.
+
+#### My Solution - 9
+
+``` JavaScript
+const isPalindrome = x => {
+  const arrayX = Array.from(String(x));
+  const reversedArrayX = [...arrayX].reverse();
+
+  return arrayX.join('') === reversedArrayX.join('') ? true : false;
+};
+```
+
+#### Test - 9
+
+``` JavaScript
+describe('Palindrone number', () => {
+  test('should return true if x is a palindrome', () => {
+    const x = 121;
+    const result = isPalindrome(x);
+
+    expect(result).toBeTruthy();
+  });
+
+  test('should return false if x is not a palindrome', () => {
+    const x = 123;
+    const result = isPalindrome(x);
+
+    expect(result).toBeFalsy();
   });
 });
 ```
