@@ -7,6 +7,7 @@ A repository where I practice data structures, algorithms, and coding challenges
 - [Easy](#easy)
   - [2626. Array Reduce Transformation](#2626-array-reduce-transformation)
   - [9. Palindrome Number](#9-palindrome-number)
+  - [2677. Chunk Array](#2677-chunk-array)
 
 ## Easy
 
@@ -71,11 +72,11 @@ describe('array reduce transformation', () => {
 
 ### 9 Palindrome Number
 
-Given an integar `x`, return `true` if `x` is a *palindrome*, and `false` otherwise.
+Given an integar `x`, return `true` if `x` is a _palindrome_, and `false` otherwise.
 
 #### My Solution - 9
 
-``` JavaScript
+```JavaScript
 const isPalindrome = x => {
   const arrayX = Array.from(String(x));
   const reversedArrayX = [...arrayX].reverse();
@@ -86,7 +87,7 @@ const isPalindrome = x => {
 
 #### Test - 9
 
-``` JavaScript
+```JavaScript
 describe('Palindrone number', () => {
   test('should return true if x is a palindrome', () => {
     const x = 121;
@@ -100,6 +101,53 @@ describe('Palindrone number', () => {
     const result = isPalindrome(x);
 
     expect(result).toBeFalsy();
+  });
+});
+```
+
+### 2677. Chunk Array
+
+Given an array `arr` and a chunk size `size`, return a `chunked` array. A chunked array contains the original elements in arr, but consists of subarrays each of length size. The length of the last subarray may be less than size if arr.length is not evenly divisible by size.
+
+#### My solution - 2677
+
+```JavaScript
+const chunk = (arr, size) => {
+  const chunked = [];
+  let index = 0;
+
+  while (index < arr.length) {
+    chunked.push(arr.slice(index, index + size));
+    index += size;
+  }
+
+  return chunked;
+};
+```
+
+#### Test - 2677
+
+```JavaScript
+describe('Chunk array', () => {
+  test('should return a chuncked array, that contains the original elements in the array, but consists of subarrays at the length of size', () => {
+    const arr = [1, 2, 3, 4, 5];
+    const size = 1;
+    const expectedResult = [[1], [2], [3], [4], [5]];
+    const result = chunk(arr, size);
+
+    expect(result).toStrictEqual(expectedResult);
+  });
+
+  test('should return a chuncked array, that contains the original elements in the array, but consists of subarrays at the length of size', () => {
+    const arr = [1, 2, 3, 4, 5];
+    const size = 3;
+    const expectedResult = [
+      [1, 2, 3],
+      [4, 5],
+    ];
+    const result = chunk(arr, size);
+
+    expect(result).toStrictEqual(expectedResult);
   });
 });
 ```
